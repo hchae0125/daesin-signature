@@ -10,6 +10,19 @@ export interface WorkItem {
     detailImg: string;
 }
 
+export const PRICING_MATRIX = {
+  "Cast & Iron": { name: "프리미엄 주물", basePrice: 250000 },
+  "Brass & Copper": { name: "클래식 황동", basePrice: 200000 },
+  "Stainless & Gold": { name: "모던 스텐", basePrice: 120000 },
+  "Essential Acrylic": { name: "실속형 아크릴", basePrice: 40000 }
+};
+
+export const SIZE_MULTIPLIERS = {
+  small: 1.0,  // A4 내외
+  medium: 1.4, // 우편함 내외
+  large: 2.0   // 문 가로폭 내외
+};
+
 export const categoryLabels: Record<Category, string> = {
     All: "전체보기",
     "Cast & Iron": "주물 · 철제",
