@@ -23,7 +23,7 @@ const swatches = [
     engName: "Real Brass Hairline",
     finishing: "정밀 브러시드 공정 (Brushed)",
     description: "금속 표면에 정교한 직선 결을 내어 빛을 은은하게 흡수하고 분산시킵니다. 타임리스하고 클래식한 건축물 파사드나 프리미엄 브랜드 플래그십에 주로 사용됩니다.",
-    imgUrl: "/materials/real_brass.png"
+    imgUrl: "/materials/Real_brass.png"
   },
   {
     id: "stainless-mirror",
