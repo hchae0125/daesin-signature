@@ -23,7 +23,7 @@ const swatches = [
     engName: "Real Brass Hairline",
     finishing: "정밀 브러시드 공정 (Brushed)",
     description: "금속 표면에 정교한 직선 결을 내어 빛을 은은하게 흡수하고 분산시킵니다. 타임리스하고 클래식한 건축물 파사드나 프리미엄 브랜드 플래그십에 주로 사용됩니다.",
-    imgUrl: "/materials/Real_brass.png"
+    imgUrl: "/materials/Real_brass.PNG"
   },
   {
     id: "stainless-mirror",
@@ -31,7 +31,7 @@ const swatches = [
     engName: "SUS Polishing Mirror",
     finishing: "초정밀 광택 공정 (Polishing)",
     description: "왜곡 없이 사물이 비치는 고난도 거울면 마감입니다. 미니멀하고 미래지향적인 무드를 연출하며, 크롬 특유의 높은 반사율로 공간에 강렬한 오브제 역할을 합니다.",
-    imgUrl: "/materials/SUS.png"
+    imgUrl: "/materials/SUS.PNG"
   },
   {
     id: "copper-patina",
@@ -39,7 +39,7 @@ const swatches = [
     engName: "Copper Vintage Patina",
     finishing: "화학적 에이징 공정 (Aged)",
     description: "시간의 깊이를 정밀하게 시뮬레이션한 수제 부식 마감입니다. 인하우스 마스터가 직접 부식 밀도를 제어하여, 모든 개체가 예술품처럼 고유한 패턴의 질감을 가집니다.",
-    imgUrl: "/materials/Cooper.png"
+    imgUrl: "/materials/Cooper.PNG"
   }
 ];
 
