@@ -105,3 +105,41 @@ export const works: WorkItem[] = [
     description: "브랜드 플래그십 스토어의 격에 맞춘 익스클루시브 금속 주조 간판입니다. 전통 주조 방식으로 완성된 두터운 황동 플레이트 위에 정밀한 도색과 섬세한 마감 처리를 입혀, 유동 인구가 많은 거리에서도 독보적인 존재감을 발휘합니다."
   }
 ];
+
+// src/app/data/works.ts (기존 파일 하단에 추가 또는 materials.ts로 분리)
+
+export interface MaterialSwatch {
+  id: string;
+  name: string;
+  engName: string;
+  finishing: string;
+  description: string;
+  imgUrl: string;
+}
+
+export const swatches: MaterialSwatch[] = [
+  {
+    id: "brass-hl",
+    name: "리얼 황동 헤어라인",
+    engName: "Real Brass Hairline",
+    finishing: "정밀 브러시드 공정 (Brushed)",
+    description: "금속 표면에 정교한 직선 결을 내어 빛을 은은하게 흡수하고 분산시킵니다. 타임리스하고 클래식한 건축물 파사드나 프리미엄 브랜드 플래그십에 주로 사용됩니다.",
+    imgUrl: "/materials/real_brass.PNG"
+  },
+  {
+    id: "stainless-mirror",
+    name: "스테인리스 폴리싱 미러",
+    engName: "SUS Polishing Mirror",
+    finishing: "초정밀 광택 공정 (Polishing)",
+    description: "왜곡 없이 사물이 비치는 고난도 거울면 마감입니다. 미니멀하고 미래지향적인 무드를 연출하며, 크롬 특유의 높은 반사율로 공간에 강렬한 오브제 역할을 합니다.",
+    imgUrl: "/materials/SUS.PNG"
+  },
+  {
+    id: "copper-patina",
+    name: "적동 빈티지 파티나 부식",
+    engName: "Copper Vintage Patina",
+    finishing: "화학적 에이징 공정 (Aged)",
+    description: "시간의 깊이를 정밀하게 시뮬레이션한 수제 부식 마감입니다. 인하우스 마스터가 직접 부식 밀도를 제어하여, 모든 개체가 예술품처럼 고유한 패턴의 질감을 가집니다.",
+    imgUrl: "/materials/Cooper.PNG"
+  }
+];
