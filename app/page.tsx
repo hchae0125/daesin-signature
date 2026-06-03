@@ -1,7 +1,7 @@
 "use client";
 
-import { useState, useMemo } from "react";
-import EstimateChat from "./components/EstimatedChat"; 
+import { useState, useMemo, useEffect } from "react";
+import EstimateChat from "./components/EstimatedChat";
 import LightboxModal from "./components/LightboxModal";
 import { works, Category, categoryLabels, WorkItem } from "./data/works";
 
@@ -47,7 +47,10 @@ export default function Page() {
   const [active, setActive] = useState<Category>("All");
   const [chatOpen, setChatOpen] = useState(false);
   const [selectedWork, setSelectedWork] = useState<WorkItem | null>(null);
-  
+
+  // ➕ 1. 한 번에 노출할 카드 개수 상태값 정의 (초기값 6개)
+  const [visibleCount, setVisibleCount] = useState(6);
+
   // 스와치 호버 상태 관리를 위한 ID 세팅
   const [hoveredSwatchId, setHoveredSwatchId] = useState<string | null>(null);
 
@@ -55,6 +58,11 @@ export default function Page() {
     active === "All" ? works : works.filter((w) => w.category === active),
     [active]
   );
+
+  // ➕ 2. 카테고리 탭이 변경되면 더 보기로 늘어났던 개수를 다시 6개로 초기화
+  useEffect(() => {
+    setVisibleCount(6);
+  }, [active]);
 
   return (
     <div className="min-h-screen bg-[#FAF9F5] text-[#3A3530] font-sans antialiased">
@@ -90,29 +98,43 @@ export default function Page() {
 
       {/* 3. 포트폴리오 섹션 */}
       <section id="portfolio" className="max-w-6xl mx-auto px-6 py-16 scroll-mt-12">
-        <div className="text-center mb-10">
+        <div className="text-center mb-6">
           <span className="text-[11px] font-bold text-[#C49A45] uppercase tracking-wider">PORTFOLIO</span>
           <h3 className="text-2xl sm:text-3xl font-extrabold mt-2 text-[#3A3530]">트렌디한 공간을 채우는 시그니처 디자인 🌿</h3>
-          <p className="text-xs opacity-60 mt-2">카드를 클릭하시면 대신시그니처만의 세밀한 메탈 표면 마감 감도를 원본 비율로 확인하실 수 있습니다.</p>
+          <p className="text-xs opacity-60 mt-2">카드를 클릭하시면 확대된 상세 컷으로 살펴보실 수 있습니다.</p>
         </div>
 
-        {/* 카테고리 필터 버튼 */}
-        <div className="flex flex-wrap gap-2 justify-center my-12">
-          {(["All", "Cast & Iron", "Brass & Copper", "Stainless & Gold", "Etched Plates", "Modern LED"] as Category[]).map((cat) => (
-            <button
-              key={cat}
-              onClick={() => setActive(cat)}
-              className={`px-4 py-2 rounded-full text-xs font-semibold transition-all ${active === cat ? "bg-[#3A3530] text-white shadow-sm" : "bg-[#E6E4DD]/60 text-[#3A3530] hover:bg-[#E6E4DD]"
-                }`}
-            >
-              {categoryLabels[cat]}
-            </button>
-          ))}
+        {/* 카테고리 네비게이터 */}
+        <div className="flex flex-col items-center my-12 gap-3">
+          <div className="flex flex-wrap gap-2 justify-center">
+            {(["All", "Cast & Iron", "Brass & Copper", "Stainless & Gold", "Etched Plates", "Modern LED"] as Category[]).map((cat) => (
+              <button
+                key={cat}
+                onClick={() => setActive(cat)}
+                className={`px-4 py-2.5 rounded-xl text-xs font-bold transition-all border ${active === cat
+                    ? "bg-[#3A3530] text-white border-[#3A3530] shadow-md"
+                    : "bg-white text-[#3A3530] border-[#E6E4DD] hover:border-[#3A3530]"
+                  }`}
+              >
+                {categoryLabels[cat]}
+              </button>
+            ))}
+          </div>
+
+          {/* 공정 매핑 서브 안내 툴팁 */}
+          <div className="text-[11px] text-[#8C8A83] bg-[#E6E4DD]/40 px-4 py-2 rounded-xl border border-[#E6E4DD]/60 text-center max-w-2xl leading-relaxed animate-in fade-in duration-300">
+            {active === "All" && "📋 전통 주물부터 하이엔드 부식·레이저 가공 및 LED까지 전 공정 아카이브"}
+            {active === "Cast & Iron" && "🧱 [포함 공정] 전통 주물간판 · 철제간판"}
+            {active === "Brass & Copper" && "✨ [포함 공정] 황동부식간판 · 적동부식간판 · 황동레이저간판 · 적동레이저간판"}
+            {active === "Stainless & Gold" && "💿 [포함 공정] 스텐레스 부식간판 · 스텐체스레이저간판 · 아노타이징간판"}
+            {active === "Etched Plates" && "🏷️ [포함 공정] 각종부식명판 · 연결식의자번호표"}
+            {active === "Modern LED" && "💡 [포함 공정] LED간판"}
+          </div>
         </div>
 
-        {/* 카드 리스트 */}
+        {/* 카드 리스트: ➕ .slice(0, visibleCount) 로 갯수 제한 수정을 적용했습니다 */}
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
-          {filteredWorks.map((work) => (
+          {filteredWorks.slice(0, visibleCount).map((work) => (
             <div
               key={work.id}
               onClick={() => setSelectedWork(work)}
@@ -137,12 +159,23 @@ export default function Page() {
             </div>
           ))}
         </div>
+
+        {/* ➕ 3. 더 보기 버튼 컴포넌트 추가 (남은 포트폴리오가 노출수보다 많을 때만 등장) */}
+        {filteredWorks.length > visibleCount && (
+          <div className="flex justify-center mt-12 animate-in fade-in slide-in-from-bottom-3 duration-500">
+            <button
+              onClick={() => setVisibleCount((prev) => prev + 6)}
+              className="bg-white text-[#3A3530] border border-[#E6E4DD] hover:border-[#3A3530] hover:bg-[#FAF9F5] px-8 py-3 rounded-xl font-bold text-xs transition-all tracking-wide shadow-sm flex items-center gap-1.5"
+            >
+              더 많은 포트폴리오 보기 <span className="text-[10px] opacity-60">({visibleCount}/{filteredWorks.length})</span>
+            </button>
+          </div>
+        )}
       </section>
 
-     {/* 4. 브랜드 가치 및 디지털 메탈 스와치 아카이브 공간 */}
+      {/* 4. 브랜드 가치 및 디지털 메탈 스와치 아카이브 공간 */}
       <section id="material-spectrum" className="bg-[#E6E4DD]/30 py-24 scroll-mt-12">
         <div className="max-w-6xl mx-auto px-6">
-          
           {/* 4-A. 섹션 헤더 */}
           <div className="text-center mb-16">
             <span className="text-[11px] font-bold text-[#C49A45] uppercase tracking-wider">OUR VALUE & MATERIAL</span>
@@ -153,7 +186,7 @@ export default function Page() {
             </p>
           </div>
 
-          {/* 4-B. 브랜드 핵심 가치 미니 카드 (상단 배치) */}
+          {/* 4-B. 브랜드 핵심 가치 미니 카드 */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-20">
             <div className="bg-white/80 backdrop-blur-sm p-6 rounded-2xl border border-[#E6E4DD]/60 shadow-sm flex gap-4 items-start">
               <div className="text-lg bg-[#FAF9F5] w-10 h-10 rounded-xl flex items-center justify-center border border-[#E6E4DD] shrink-0">🛠️</div>
@@ -180,43 +213,38 @@ export default function Page() {
 
           <hr className="border-[#E6E4DD] mb-16 max-w-xs mx-auto" />
 
-          {/* 4-C. 디지털 스와치 그리드 (하단 배치) */}
-         <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-16">
-      {swatches.map((swatch) => (
-        <div 
-          key={swatch.id}
-          className="group border-b border-[#E6E4DD]/60 pb-10 flex flex-col sm:flex-row gap-8 items-center sm:items-start transition-all duration-300"
-        >
-          {/* 레퍼런스 PDF 스타일: 화이트 베이스 판 위에 입체감 있게 안착된 메탈 칩 */}
-          <div className="w-full sm:w-44 aspect-square rounded-2xl bg-white border border-[#E6E4DD]/80 shadow-[inset_0_2px_4px_rgba(0,0,0,0.02)] flex items-center justify-center p-5 shrink-0 relative overflow-hidden">
-            
-            {/* 정밀 공정을 상징하는 미니멀 모눈 격자선 배경 */}
-            <div className="absolute inset-0 opacity-[0.03] bg-[linear-gradient(to_right,#808080_1px,transparent_1px),linear-gradient(to_bottom,#808080_1px,transparent_1px)] bg-[size:12px_12px]"></div>
-            
-            <img 
-              src={swatch.imgUrl} 
-              alt={swatch.name}
-              // 💡 레퍼런스 특유의 45도 사선 각도(rotate-[-12deg])와 고급스러운 부드러운 그림자를 완벽 구현했습니다.
-              className="w-[85%] h-[85%] object-cover rounded-lg shadow-[5px_12px_20px_rgba(0,0,0,0.12)] border border-black/5 transform rotate-[-12deg] transition-all duration-500 ease-in-out group-hover:rotate-0 group-hover:scale-105"
-            />
-          </div>
+          {/* 4-C. 디지털 스와치 그리드 */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-16">
+            {swatches.map((swatch) => (
+              <div
+                key={swatch.id}
+                className="group border-b border-[#E6E4DD]/60 pb-10 flex flex-col sm:flex-row gap-8 items-center sm:items-start transition-all duration-300"
+              >
+                <div className="w-full sm:w-44 aspect-square rounded-2xl bg-white border border-[#E6E4DD]/80 shadow-[inset_0_2px_4px_rgba(0,0,0,0.02)] flex items-center justify-center p-5 shrink-0 relative overflow-hidden">
+                  <div className="absolute inset-0 opacity-[0.03] bg-[linear-gradient(to_right,#808080_1px,transparent_1px),linear-gradient(to_bottom,#808080_1px,transparent_1px)] bg-[size:12px_12px]"></div>
+                  <img
+                    src={swatch.imgUrl}
+                    srcSet={`${swatch.imgUrl} 1x`}
+                    alt={swatch.name}
+                    className="w-[85%] h-[85%] object-cover rounded-lg shadow-[5px_12px_20px_rgba(0,0,0,0.12)] border border-black/5 transform rotate-[-12deg] transition-all duration-500 ease-in-out group-hover:rotate-0 group-hover:scale-105"
+                  />
+                </div>
 
-          {/* 우측 텍스트 정보 구역 */}
-          <div className="flex-1 text-center sm:text-left">
-            <div className="flex flex-wrap items-baseline justify-center sm:justify-start gap-x-2 gap-y-1">
-              <h4 className="font-extrabold text-base text-[#3A3530] tracking-tight">{swatch.name}</h4>
-              <span className="text-[10px] opacity-40 font-mono tracking-tight">{swatch.engName}</span>
-            </div>
-            <span className="inline-block text-[10px] text-[#C49A45] font-bold bg-[#E6E4DD]/40 border border-[#C49A45]/10 px-2.5 py-0.5 rounded-full mt-2">
-              {swatch.finishing}
-            </span>
-            <p className="text-xs opacity-75 mt-4 leading-relaxed font-normal text-[#55524E]">
-              {swatch.description}
-            </p>
+                <div className="flex-1 text-center sm:text-left">
+                  <div className="flex flex-wrap items-baseline justify-center sm:justify-start gap-x-2 gap-y-1">
+                    <h4 className="font-extrabold text-base text-[#3A3530] tracking-tight">{swatch.name}</h4>
+                    <span className="text-[10px] opacity-40 font-mono tracking-tight">{swatch.engName}</span>
+                  </div>
+                  <span className="inline-block text-[10px] text-[#C49A45] font-bold bg-[#E6E4DD]/40 border border-[#C49A45]/10 px-2.5 py-0.5 rounded-full mt-2">
+                    {swatch.finishing}
+                  </span>
+                  <p className="text-xs opacity-75 mt-4 leading-relaxed font-normal text-[#55524E]">
+                    {swatch.description}
+                  </p>
+                </div>
+              </div>
+            ))}
           </div>
-        </div>
-      ))}
-    </div>
         </div>
       </section>
 
@@ -251,7 +279,7 @@ export default function Page() {
       </section>
 
       {/* 6. 견적양식 */}
-<section id="contact" className="bg-white border-t border-[#E6E4DD]/60 py-24 scroll-mt-12">
+      <section id="contact" className="bg-white border-t border-[#E6E4DD]/60 py-24 scroll-mt-12">
         <div className="max-w-5xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-12">
           <div>
             <span className="text-[11px] font-bold text-[#C49A45] uppercase tracking-wider">PROJECT INQUIRY</span>
@@ -293,7 +321,7 @@ export default function Page() {
 
       <footer className="bg-[#3A3530] text-[#E6E4DD] py-12 text-center text-[11px]">
         <p className="font-bold text-white mb-2">대신기업 (온라인 브랜드: 대신시그니처)</p>
-        <p className="opacity-60">대표: 김선옥 | 주소: 서울 중구 을지로 155 대신상가 3층</p>
+        <p className="opacity-60">대표: 김선옥 | 주소: 서울 중구 을지로 155</p>
       </footer>
     </div>
   );

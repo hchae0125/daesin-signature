@@ -53,7 +53,7 @@ export default function LightboxModal({ work, onClose, onOpenChat }: LightboxMod
                 <p className="text-xs font-bold opacity-90">{work.material}</p>
               </div>
               <p className="text-[11px] opacity-70 leading-relaxed">
-                본 시안은 을지로 대신상가 현장에서 직접 형틀을 조각하여 주조해 낸 최고급 금속 가공물입니다. 기성 아크릴/시트지 간판과 달리 햇빛과 눈비를 맞아도 고유의 깊이감이 변치 않습니다.
+                {work.description}
               </p>
             </div>
           </div>
