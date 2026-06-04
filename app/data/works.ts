@@ -1,14 +1,14 @@
 export type Category = "All" | "Cast & Iron" | "Brass & Copper" | "Stainless & Gold" | "Etched Plates" | "Modern LED";
 
 export interface WorkItem {
-    id: number;
-    title: string;
-    location: string;
-    category: Exclude<Category, "All">;
-    material: string;
-    bgImg: string;
-    detailImg: string;
-    description: string;
+  id: number;
+  title: string;
+  location: string;
+  category: Exclude<Category, "All">;
+  material: string;
+  bgImg: string;
+  detailImg: string;
+  description: string;
 }
 
 export const PRICING_MATRIX = {
@@ -25,12 +25,12 @@ export const SIZE_MULTIPLIERS = {
 };
 
 export const categoryLabels: Record<Category, string> = {
-    All: "전체보기",
-    "Cast & Iron": "주물 · 철제",
-    "Brass & Copper": "황동 · 적동",
-    "Stainless & Gold": "스텐 · 골드",
-    "Etched Plates": "부식 현판",
-    "Modern LED": "모던 LED",
+  All: "전체보기",
+  "Cast & Iron": "주물 · 철제",
+  "Brass & Copper": "황동 · 적동",
+  "Stainless & Gold": "스텐 · 골드",
+  "Etched Plates": "부식 현판",
+  "Modern LED": "모던 LED",
 };
 
 export const works: WorkItem[] = [
@@ -46,13 +46,13 @@ export const works: WorkItem[] = [
   },
   {
     id: 2,
-    title: "한남동 부티크",
-    location: "한남동, 서울",
-    category: "Cast & Iron",
-    material: "황동 · 신주",
-    bgImg: "/asset/cast_iron_sign_001_exterior.png",
-    detailImg: "/asset/cast_iron_sign_001.jpg",
-    description: "고온의 주조 틀에서 탄생하는 묵직한 전통 주물 간판입니다. 금속을 녹여내어 형성된 특유의 원초적인 밀도감 위에, 테두리와 글자 엠보싱을 정교하게 폴리싱 마감하여 시간이 흐를수록 깊어지는 공간의 헤리티지를 보여줍니다."
+    title: "뷰록 메이크업 스튜디오",
+    location: "신사동, 서울",
+    category: "Stainless & Gold",
+    material: "스텐레스 헤어라인 (5T)",
+    bgImg: "/asset/스텐레스헤어라인001.webp",
+    detailImg: "/asset/스텐레스헤어라인001(1).jpg",
+    description: "5mm 두께의 중후한 스텐레스 헤어라인 플레이트에 정밀 레이저 커팅 공정을 적용했습니다. 메탈 특유의 모던하고 정제된 결 위로 섬세하게 오려낸 로고와 텍스트가 돋보이며, 스튜디오 공간의 감각적이고 세련된 아이덴티티를 완성합니다."
   },
   {
     id: 3,
@@ -66,14 +66,15 @@ export const works: WorkItem[] = [
   },
   {
     id: 4,
-    title: "키요이 스키야키, 일식 레스토랑",
-    location: "서울대입구, 서울",
+    title: "폴뉴아 한남 플래그십 스토어",
+    location: "한남동, 서울",
     category: "Cast & Iron",
     material: "황동 · 신주",
-    bgImg: "/asset/주물간판001_exterior.png",
-    detailImg: "/asset/주물간판001.png",
-    description: "단단한 황동 합금을 고유의 몰드에 부어내어 기계가 흉내 낼 수 없는 입체적인 볼륨감을 구현했습니다. 바탕면의 중후한 질감과 장인의 손끝에서 대비를 이루는 입체 글자의 은은한 광택이 어우러져, 매장의 첫인상에 깊은 신뢰감을 부여합니다."
+    bgImg: "/asset/주물간판003_exterior.png",
+    detailImg: "/asset/주물간판003.jpg",
+    description: "황동(신주)을 정밀하게 녹여 틀에 부어내는 전통 금속 주조 방식으로 제작되었습니다. 양면 바탕에는 감각적인 컬러 도장을 입히고, 돌출된 글자와 테두리는 장인의 손길로 정교하게 광(주물 폴리싱)을 내어 완성한 하이엔드 양면 간판입니다."
   },
+  
   {
     id: 5,
     title: "디자인 빌딩 준공 표지판",
@@ -96,14 +97,25 @@ export const works: WorkItem[] = [
   },
   {
     id: 7,
-    title: "폴뉴아 한남 플래그십 스토어",
+    title: "키요이 스키야키, 일식 레스토랑",
+    location: "서울대입구, 서울",
+    category: "Cast & Iron",
+    material: "황동 · 신주",
+    bgImg: "/asset/주물간판001_exterior.png",
+    detailImg: "/asset/주물간판001.png",
+    description: "단단한 황동 합금을 고유의 몰드에 부어내어 기계가 흉내 낼 수 없는 입체적인 볼륨감을 구현했습니다. 바탕면의 중후한 질감과 장인의 손끝에서 대비를 이루는 입체 글자의 은은한 광택이 어우러져, 매장의 첫인상에 깊은 신뢰감을 부여합니다."
+  },
+  {
+    id: 8,
+    title: "한남동 부티크",
     location: "한남동, 서울",
     category: "Cast & Iron",
     material: "황동 · 신주",
-    bgImg: "/asset/주물간판003_exterior.png",
-    detailImg: "/asset/주물간판003.jpg",
-    description: "황동(신주)을 정밀하게 녹여 틀에 부어내는 전통 금속 주조 방식으로 제작되었습니다. 양면 바탕에는 감각적인 컬러 도장을 입히고, 돌출된 글자와 테두리는 장인의 손길로 정교하게 광(주물 폴리싱)을 내어 완성한 하이엔드 양면 간판입니다."
-  }
+    bgImg: "/asset/cast_iron_sign_001_exterior.png",
+    detailImg: "/asset/cast_iron_sign_001.jpg",
+    description: "고온의 주조 틀에서 탄생하는 묵직한 전통 주물 간판입니다. 금속을 녹여내어 형성된 특유의 원초적인 밀도감 위에, 테두리와 글자 엠보싱을 정교하게 폴리싱 마감하여 시간이 흐를수록 깊어지는 공간의 헤리티지를 보여줍니다."
+  },
+  
 ];
 
 // src/app/data/works.ts (기존 파일 하단에 추가 또는 materials.ts로 분리)
