@@ -1,0 +1,86 @@
+{
+  "header": {
+    "portfolio": "Portfolio",
+    "value": "Brand Value",
+    "process": "Process",
+    "contact": "Contact",
+    "cta": "Instant Quote"
+  },
+  "hero": {
+    "badge": "✨ 30-Year Heritage & High-End Architecture Sign",
+    "title": "Crafting the First Impression <br />with <span class='text-[#C49A45]'>Premium Architectural Signage</span>",
+    "desc": "For leading flagship stores and timeless architectures. <br />Experience unparalleled craft, backed by 30 years of heritage and an exquisite metal spectrum, <br class='hidden sm:inline' />complemented by our <span class='font-semibold text-[#C49A45]'>Streamlined Instant Quote System</span>.",
+    "ctaQuote": "Instant Quote →",
+    "ctaPortfolio": "View Portfolio"
+  },
+  "chatbot": {
+    "welcome": "Welcome to Daesin Signature's Online Estimate Simulator. Select your desired specifications to receive a real-time estimated quote."
+  },
+  "materials": {
+    "badge": "Heritage & Materiality",
+    "title": "Timeless Expressions Shaped by Time",
+    "subtitle": "Discover the 30-year archival philosophy and exquisite, hand-finished metal textures refined within the Daesin Signature atelier.",
+    "features": {
+      "mold": {
+        "title": "Artisanal Sand-Cast Molding",
+        "desc": "Molten metal poured into traditional sand molds, capturing a raw, substantial density and weight that automated mass production can never replicate."
+      },
+      "engraving": {
+        "title": "Architectural Etching & Carving",
+        "desc": "A meticulous, permanent incision into the metal substrate. Far beyond superficial printing, it ensures absolute structural permanence across decades."
+      },
+      "master": {
+        "title": "Sole Master Craftsmanship",
+        "desc": "Entrusted to a single master artisan from texture brushing to structural finishing—honoring the singular integrity of bespoke creation over assembly lines."
+      }
+    },
+    "items": {
+      "hairline": {
+        "title": "Solid Brass Hairline",
+        "process": "Precision Linear-Brushed Finish",
+        "desc": "Meticulously brushed linear grains that subtly diffuse light. A premier choice for structural facades and high-end brand flagships seeking quiet luxury."
+      },
+      "mirror": {
+        "title": "Stainless Polished Mirror",
+        "process": "Specular High-Polishing Process",
+        "desc": "A flawless, distortion-free mirror finish. It injects a minimalist, avant-garde mood, acting as a striking architectural focal point with chrome’s deep reflectivity."
+      },
+      "patina": {
+        "title": "Copper Vintage Patina",
+        "process": "Artisanal Accented Chemical Aging",
+        "desc": "An intentional aging process that captures the depth of natural patination. Controlled by our master artisan, each surface bears a singular, museum-quality texture."
+      }
+    }
+  },
+  "process": {
+    "title": "The Journey of a Brand Settling into Space",
+    "step1": {
+      "title": "💬 Creative Direction",
+      "desc": "Meticulous analysis of your brand identity and spatial tone by our design experts."
+    },
+    "step2": {
+      "title": "📐 Technical Blueprinting",
+      "desc": "Precision 3D renderings and tangible high-end metal samples for flawless decision-making."
+    },
+    "step3": {
+      "title": "🔨 In-House Atelier Crafting",
+      "desc": "Master artisans begin hand-finished molding and precision foundry work at our Euljiro studio."
+    },
+    "step4": {
+      "title": "📦 Curated Delivery & Guide",
+      "desc": "Secure premium packaging accompanied by precise structural templates for effortless installation."
+    }
+  },
+  "contact": {
+    "title": "Imprinting Brand Identity <br />onto Architectural Metal",
+    "desc": "Initiate your bespoke project. Outline your spatial concept, required dimensions, and material preferences. Our master design atelier will review the specifications to provide dedicated structural feedback and tailored estimates.",
+    "placeholderName": "Name / Organization / Project Title",
+    "placeholderMessage": "Provide details on desired materials, dimensions (W x H), or the overarching design concept.",
+    "submitBtn": "Request Commission"
+  },
+  "footer": {
+    "company": "Daesin Enterprise (Online Brand: Daesin Signature)",
+    "info": "CEO: Sun-ok Kim | Address: 155 Eulji-ro, Jung-gu, Seoul, Republic of Korea",
+    "rights": "© 2026 Daesin Signature. All rights reserved."
+  }
+}

@@ -6,6 +6,8 @@ import { createClient } from "../utils/supabase/client";
 interface EstimateChatProps {
   isOpen: boolean;
   onClose: () => void;
+  dict: any;
+  lang: "ko" | "en";
 }
 
 interface Message {
