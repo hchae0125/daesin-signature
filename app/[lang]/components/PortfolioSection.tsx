@@ -24,15 +24,13 @@ export default function PortfolioSection({ onWorkSelect, dict, lang }: Portfolio
 
   return (
     <section id="portfolio" className="max-w-6xl mx-auto px-6 py-16 scroll-mt-12">
-      
+
       {/* 상단 타이틀 영역 */}
       <div className="text-center mb-6">
         <span className="text-[11px] font-bold text-[#C49A45] uppercase tracking-wider">PORTFOLIO</span>
-        {/* 💡 영문 타이틀을 직관적이고 묵직한 명사형으로 교체 */}
         <h3 className="text-2xl sm:text-3xl font-extrabold mt-2 text-[#3A3530]">
           {lang === "ko" ? "트렌디한 공간을 채우는 시그니처 디자인 🌿" : "Architectural Signage Archive"}
         </h3>
-        {/* 💡 '카드를 클릭하시면~' 설명조를 '확대해서 보기(Select to expand)' 형태로 축약 */}
         <p className="text-xs opacity-60 mt-2 text-[#55524E]">
           {lang === "ko" ? "카드를 클릭하시면 확대된 상세 컷으로 살펴보실 수 있습니다." : "Select any project to view expanded details and surface textures."}
         </p>
@@ -45,17 +43,16 @@ export default function PortfolioSection({ onWorkSelect, dict, lang }: Portfolio
             <button key={key}
               onClick={() => setActive(key as Category)}
               className={`px-4 py-2.5 rounded-xl text-xs font-bold transition-all border ${active === key
-                  ? "bg-[#3A3530] text-white border-[#3A3530] shadow-md"
-                  : "bg-white text-[#3A3530] border-[#E6E4DD] hover:border-[#3A3530]"
+                ? "bg-[#3A3530] text-white border-[#3A3530] shadow-md"
+                : "bg-white text-[#3A3530] border-[#E6E4DD] hover:border-[#3A3530]"
                 }`}
             >
-              {/* 카테고리 탭 영문은 대문자로 정렬하여 모던함을 더함 */}
               {lang === "en" ? labelObj[lang].toUpperCase() : labelObj[lang]}
             </button>
           ))}
         </div>
 
-        {/* 프로세스 인포메이션 바 (이전 단계에서 다듬은 아카이브 리포트 스타일 적용) */}
+        {/* 프로세스 인포메이션 바 */}
         <div className="text-[11px] text-[#8C8A83] bg-[#E6E4DD]/40 px-4 py-2 rounded-xl border border-[#E6E4DD]/60 text-center max-w-2xl leading-relaxed font-medium">
           {lang === "ko" ? (
             <>
@@ -90,25 +87,37 @@ export default function PortfolioSection({ onWorkSelect, dict, lang }: Portfolio
             <div className="aspect-[4/5] w-full relative overflow-hidden bg-[#FAF9F5]">
               <img src={work.bgImg} alt={work.title[lang]} className="w-full h-full object-cover absolute inset-0 transition-opacity duration-500 group-hover:opacity-0" />
               <img src={work.detailImg} alt={work.title[lang]} className="w-full h-full object-cover absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100 scale-105" />
-              
+
               {/* 호버 오버레이 */}
               <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                {/* 💡 '자세히 보기' 대신 'VIEW PROJECT'로 톤업 */}
                 <span className="bg-white/90 text-[#3A3530] text-[11px] uppercase tracking-wider font-bold px-4 py-2 rounded-xl backdrop-blur-sm shadow-sm transition-transform transform translate-y-2 group-hover:translate-y-0">
                   {lang === "ko" ? "🔍 자세히 보기" : "View Project"}
                 </span>
               </div>
             </div>
-            
-            {/* 카드 하단 메타 정보 영역 */}
-            <div className="p-5 flex justify-between items-center bg-white">
-              <div className="space-y-0.5">
-                <h4 className="font-bold text-sm text-[#3A3530] tracking-tight">{work.title[lang]}</h4>
-                <p className="text-[11px] opacity-50 text-[#55524E]">📍 {work.location[lang]}</p>
+
+            {/* ✨ [개선] 카드 하단 메타 정보 영역: 상하 구조 분리 (Catalogue Style) */}
+            <div className="p-4 flex flex-col gap-2 bg-white">
+              <h4 className={`
+    text-[#3A3530] text-[15px] sm:text-[16px] 
+    leading-snug block w-full
+    ${lang === "en"
+                  ? "font-sans-en font-medium tracking-normal" // 💡 영문은 두께를 medium(500)으로 내리고 자간을 넓힙니다.
+                  : "font-bold tracking-tight"
+                }
+  `}>
+                {work.title[lang]}
+              </h4>
+              {/* [상단 라인] 위치 정보와 소재 뱃지를 나란히 배치하여 기준선을 잡아줌 */}
+              <div className="flex justify-between items-center text-[11px] text-[#8C8A83] tracking-tight">
+                <span className="opacity-70">📍 {work.location[lang]}</span>
+
+                {/* 영문일 때 소재가 너무 길어져서 밀리는 것을 방지하기 위해 텍스트 사이즈 미세 조정 */}
+                <span className="font-bold text-[#C49A45] bg-[#FAF9F5] border border-[#E6E4DD] px-2 py-0.5 rounded-full uppercase text-[9px] sm:text-[10px] tracking-wider leading-none">
+                  {work.material[lang].split(' · ')[0]}
+                </span>
               </div>
-              <span className="text-[10px] font-bold text-[#C49A45] bg-[#FAF9F5] border border-[#E6E4DD] px-2.5 py-0.5 rounded-full uppercase tracking-wide">
-                {work.material[lang].split(' · ')[0]}
-              </span>
+
             </div>
           </div>
         ))}
@@ -121,7 +130,6 @@ export default function PortfolioSection({ onWorkSelect, dict, lang }: Portfolio
             onClick={() => setVisibleCount((prev) => prev + 6)}
             className="bg-white text-[#3A3530] border border-[#E6E4DD] hover:border-[#3A3530] hover:bg-[#FAF9F5] px-8 py-3 rounded-xl font-bold text-xs transition-all tracking-widest uppercase shadow-sm flex items-center gap-2"
           >
-            {/* 💡 더보기 버튼 캡션 리인프라 */}
             {lang === "ko" ? "더 많은 포트폴리오 보기" : "More Works"}{" "}
             <span className="text-[10px] opacity-40 font-mono">({visibleCount} / {filteredWorks.length})</span>
           </button>
