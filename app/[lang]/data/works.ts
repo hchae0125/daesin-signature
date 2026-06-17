@@ -112,19 +112,20 @@ export const works: WorkItem[] = [
       en: "An exclusive cast metal signage tailored to match the prestige of a brand flagship store. The heavy brass plate, completed via traditional casting methods, is finished with premium coatings to command a distinct and powerful presence on high-traffic streets."
     }
   },
-  {
-    id: 7,
-    title: { ko: "키요이 스키야키, 일식 레스토랑", en: "Kiyoi Sukiyaki Restaurant" },
-    location: { ko: "서울대입구, 서울", en: "Seoul Nat'l Univ., Seoul" },
-    category: "Cast & Iron",
-    material: { ko: "황동 · 신주", en: "Cast Brass" },
-    bgImg: "/asset/cast-metal-sign-001_exterior.png",
-    detailImg: "/asset/cast-metal-sign-001.png",
-    description: {
-      ko: "단단한 황동 합금을 고유의 몰드에 부어내어 기계가 흉내 낼 수 없는 입체적인 볼륨감을 구현했습니다. 바탕면의 중후한 질감과 장인의 손끝에서 대비를 이루는 입체 글자의 은은한 광택이 어우러져, 매장의 첫인상에 깊은 신뢰감을 부여합니다.",
-      en: "Solid brass alloy poured into bespoke molds to achieve a 3D volumetric depth unrepeatable by machinery. The heavy texture of the background and the elegant luster of the polished embossed lettering forge an immediate impression of deep credibility."
-    }
-  },
+//   {
+//   "id": 7,
+//   "title": { "ko": "우직서울", "en": "Woojik Seoul" },
+//   "location": { "ko": "성수동, 서울", "en": "Seongsu-dong, Seoul" },
+//   "category": "Stainless & Gold",
+//   "material": { "ko": "스틸 부식 레이저 스카시", "en": "Laser-Cut Rusted Steel" },
+//   "bgImg": "/asset/woojik-seoul_exterior.png",
+//   "detailImg": "/asset/portfolio_003_detail.jpg",
+//   "description": {
+//     "ko": "두터운 스틸 플레이트를 레이저 커팅한 뒤, 표면을 의도적으로 부식시켜 철 부식 고유의 붉고 무거운 빈티지 질감을 구현한 입체 문자 사인입니다. 거친 석재 외벽 위에서 자연스러운 세월의 흔적을 표현하며, 상단 스포트라이트 조명이 만들어내는 깊은 그림자와 어우러져 공간의 아날로그한 헤리티지를 극대화합니다.",
+//     "en": "A dimensional text signage crafted from thick steel plates using laser cutting, intentionally weathered to achieve a rich, vintage rust patina finish. Mounted on a textured stone exterior wall, it expresses a natural passage of time, while the deep shadows cast by the upper spotlight enhance the space's analogue heritage."
+//   }
+// },
+  
   {
     id: 8,
     title: { ko: "한남동 부티크", en: "Hannam-dong Boutique" },
@@ -137,7 +138,60 @@ export const works: WorkItem[] = [
       ko: "고온의 주조 틀에서 탄생하는 묵직한 전통 주물 간판입니다. 금속을 녹여내어 형성된 특유의 원초적인 밀도감 위에, 테두리와 글자 엠보싱을 정교하게 폴리싱 마감하여 시간이 흐를수록 깊어지는 공간의 헤리티지를 보여줍니다.",
       en: "A heavy, traditional cast metal signage born in high-temperature foundry molds. Above the raw, pristine density formed by melting metal, the borders and embossed text are precisely polished to manifest a deep heritage that matures with time."
     }
+  },
+  {
+  "id": 9,
+  "title": { "ko": "율목커피", "en": "Yulmok Coffee" },
+  "location": { "ko": "방배동, 서울", "en": "Bangbae-dong, Seoul" },
+  "category": "Stainless & Gold",
+  "material": { "ko": "스틸 (포레스트 그린 분체도장)", "en": "Powder-Coated Steel (Forest Green)" },
+  "bgImg": "/asset/portfolio_001.jpg",
+  "detailImg": "/asset/portfolio_001_detail.png",
+  "description": {
+    "ko": "갈바륨 철판을 고해상도 레이저로 타공 및 커팅한 뒤, 고온 분체도장으로 마감한 입체 사인입니다. 웜톤의 구획형 외벽 위에서 포레스트 그린 컬러와 철판 특유의 칼날처럼 정교한 라인이 선명한 대비를 이룹니다. 파사드 고정형 현판뿐만 아니라, 매장 진입로나 내부 공간의 톤을 잡아주는 독립형 스탠딩 오브제로도 연출이 가능합니다.",
+    "en": "A dimensional signage crafted from steel using high-precision laser cutting, finished with a premium forest green powder coating. Mounted against warm-toned exterior walls, the razor-sharp contours of the steel create a striking, clean contrast. Designed for versatile structural integration, it can be seamlessly flush-mounted to the facade or utilized as a freestanding sculptural object to anchor the store's entrance identity."
   }
+},
+{
+  "id": 10,
+  "title": { "ko": "립샘한방병원", "en": "Lipsam Korean Medicine Hospital" },
+  "location": { "ko": "역삼동, 서울", "en": "Yeoksam-dong, Seoul" },
+  "category": "Stainless & Gold",
+  "material": { "ko": "스틸 레이저 스카시", "en": "Laser-Cut Steel" },
+  "bgImg": "/asset/portfolio_002.png",
+  "detailImg": "/asset/portfolio_002.png",
+  "description": {
+    "ko": "갈바륨 철판을 고해상도 레이저로 커팅하여 연출한 인테리어 입체 문자 사인입니다. 병원 로비 진입로 상단에 균형 있게 배치되어 대리석 마감 및 은은한 간접 조명과 조화를 이루며, 철판 특유의 칼날처럼 정교한 라인으로 인포메이션 공간에 차분하고 전문적인 신뢰감을 부여합니다.",
+    "en": "A dimensional interior text signage crafted from steel using high-precision laser cutting. Positioned gracefully above the hospital's main entrance lobby, it seamlessly complements the premium marble finishes and indirect ambient lighting, bringing a sharp, professional credibility to the reception space."
+  }
+},
+{
+    id: 11,
+    title: { ko: "키요이 스키야키, 일식 레스토랑", en: "Kiyoi Sukiyaki Restaurant" },
+    location: { ko: "서울대입구, 서울", en: "Seoul Nat'l Univ., Seoul" },
+    category: "Cast & Iron",
+    material: { ko: "황동 · 신주", en: "Cast Brass" },
+    bgImg: "/asset/cast-metal-sign-001_exterior.png",
+    detailImg: "/asset/cast-metal-sign-001.png",
+    description: {
+      ko: "단단한 황동 합금을 고유의 몰드에 부어내어 기계가 흉내 낼 수 없는 입체적인 볼륨감을 구현했습니다. 바탕면의 중후한 질감과 장인의 손끝에서 대비를 이루는 입체 글자의 은은한 광택이 어우러져, 매장의 첫인상에 깊은 신뢰감을 부여합니다.",
+      en: "Solid brass alloy poured into bespoke molds to achieve a 3D volumetric depth unrepeatable by machinery. The heavy texture of the background and the elegant luster of the polished embossed lettering forge an immediate impression of deep credibility."
+    }
+  },
+ {
+  "id": 11,
+  "title": { "ko": "송악기도처 안내판", "en": "Songak Prayer Site Signage" },
+  "location": { "ko": "파주시, 경기도", "en": "Paju-si, Gyeonggi-do" },
+  "category": "Stainless & Gold", 
+  "material": { "ko": "알루미늄 (다크 그레이 아노다이징)", "en": "Anodized Aluminum (Dark Grey)" },
+  "bgImg": "/asset/portfolio_004.png",
+  "detailImg": "/asset/portfolio_004_detail.png",
+  "description": {
+    "ko": "고강도 알루미늄 플레이트를 정밀 절곡한 뒤, 프리미엄 다크 그레이 아노다이징(Anodizing) 공정으로 마감한 독립형 인포메이션 사인보드입니다. 표면에 입혀진 미세한 샌드블라스트 질감이 빛 반사를 고급스럽게 흡수하며, 파주 DMZ 접경 지역의 자외선이나 습한 실외 환경에서도 부식과 변색 없이 본연의 매트한 톤을 반영구적으로 유지합니다.",
+    "en": "A freestanding information signage crafted from high-strength aluminum plates with precision bending and finished in a premium dark grey anodized coating. The fine, sandblasted texture on the surface gracefully diffuses light reflections, preventing corrosion and discoloration to permanently maintain its matte tone even in harsh outdoor environments of the Paju DMZ area."
+  }
+}
+  
 ];
 
 // src/app/data/works.ts (기존 파일 하단에 추가 또는 materials.ts로 분리)
