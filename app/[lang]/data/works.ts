@@ -179,7 +179,7 @@ export const works: WorkItem[] = [
     }
   },
  {
-  "id": 11,
+  "id": 12,
   "title": { "ko": "송악기도처 안내판", "en": "Songak Prayer Site Signage" },
   "location": { "ko": "파주시, 경기도", "en": "Paju-si, Gyeonggi-do" },
   "category": "Stainless & Gold", 
